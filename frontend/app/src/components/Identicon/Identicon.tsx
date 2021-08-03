@@ -20,10 +20,10 @@ export const Identicon: React.FC<IdenticonProps> = ({
   onClick,
   ...rest
 }) => {
-  const data = url
-    ? url
-    : type === 'tzKtCat'
-    ? `https://services.tzkt.io/v1/avatars2/${seed}`
-    : create({ seed, ...rest }).toDataURL();
+  const data =
+    url ||
+    (type === 'tzKtCat'
+      ? `https://services.tzkt.io/v1/avatars2/${seed}`
+      : create({ seed, ...rest }).toDataURL());
   return <Avatar variant={variant} alt={alt} src={data} onClick={onClick} />;
 };
